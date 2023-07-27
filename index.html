@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <div class="form-heading">
-            <h3>Job Registration Form</h3>
+            <h1>Job Registration Form</h1>
         </div>
         <div class="form-body">
             <form action="">
@@ -20,29 +20,29 @@
                         
                     </div>
                     <section class="details personal-details">
-                        <div class="input-row">
+                        <div class="input-row form-floating">
+                            <input class="form-control" type="text" name="firstName" placeholder="First Name" required>
                             <label for="firstName">First Name</label>
-                            <input type="text" name="firstName" placeholder="First Name">
                         </div>
-                        <div class="input-row">
+                        <div class="input-row form-floating">
+                            <input class="form-control" type="text" name="lastName" placeholder="Last Name" required>
                             <label for="lastName">Last Name</label>
-                            <input type="text" name="lastName" placeholder="Last Name">
                         </div>
-                        <div class="input-row">
+                        <div class="input-row form-floating">
+                            <input class="form-control" type="text" name="phone" placeholder="Phone" required>
                             <label for="phone">Phone</label>
-                            <input type="text" name="phone" placeholder="Phone">
                         </div>
-                        <div class="input-row">
+                        <div class="input-row form-floating">
+                            <input class="form-control" type="text" name="email" placeholder="email" required>
                             <label for="email">email</label>
-                            <input type="text" name="email" placeholder="email">
                         </div>
-                        <div class="input-row">
-                            <label for="date" style="font-size: medium;">Date:</label>
-                            <input type="text" placeholder="Date" name="date" id="date" required style="">
+                        <div class="input-row form-floating">
+                            <input class="form-control" type="text" placeholder="username" name="username" required>
+                            <label for="username" >Username</label>
                         </div>
-                        <div class="input-row">
-                            <label for="time">Time:</label>
-                            <input type="text" placeholder="Time" name="time" id="time" required>
+                        <div class="input-row form-floating">
+                            <input class="form-control" type="password" placeholder="password" name="password" required>
+                            <label for="password">Password</label>
                         </div>
                         <div class="gender-container">
                             <!-- radio button for gender -->
@@ -65,7 +65,7 @@
                         
                     </div>
                     <section class="details address-details">
-                        <div class="input-row">
+                        <div class="input-row select">
                             <select required>
                             <option hidden disabled selected value> Country </option>>
                             <option>India</option>
@@ -73,7 +73,7 @@
                             <option>UK</option>
                             </select>
                         </div>
-                        <div class="input-row">
+                        <div class="input-row select">
                             <select required>
                             <option hidden disabled selected value> State </option>>
                             <option>Karnataka</option>
@@ -83,7 +83,7 @@
                             <option>England</option>
                             </select>
                         </div>
-                        <div class="input-row">
+                        <div class="input-row select">
                             <select name="cities" id="city" required>
                             <option hidden disabled selected value> City </option>>
                             <option>Coimbatore</option>
@@ -95,6 +95,10 @@
                             <option>San Francisco</option>
                             <option>London</option>
                             </select>
+                        </div>
+                        <div class="input-row form-floating">
+                            <input class="form-control" type="text" placeholder="Address" name="address" required>
+                            <label for="address">Address</label>
                         </div>
                     </section> 
                 </section>
@@ -102,66 +106,79 @@
 
                 <section class="right form-content">
                     <div class="title">
-                        <h1>Eductional details</h1>
+                        <h1>Educational details</h1>
                         
                     </div>
                     <section class="details eductional-details">
 
-                        <div class="input-row">
+                        <div class="input-row form-floating">
+                            <input class="form-control" type="text" name="SeniorSecondary" placeholder="Senior Secondary" required>
                             <label for="SeniorSecondary">Senior Secondary</label>
-                            <input type="text" name="SeniorSecondary" placeholder="Senior Secondary">
                         </div>
-                        <div class="input-row">
+                        <div class="input-row form-floating">
+                            <input class="form-control" type="text" name="higherSecondary" placeholder="Higher Secondary" required>
                             <label for="higherSecondary">Higher Secondary</label>
-                            <input type="text" name="higherSecondary" placeholder="Higher Secondary">
                         </div>
-                        <div class="input-row">
+                        <div class="input-row form-floating">
+                            <input class="form-control" type="text" name="college" placeholder="College" required>
                             <label for="college">College</label>
-                            <input type="text" name="college" placeholder="College">
                         </div>
-                        <div class="input-row">
+                        <div class="input-row form-floating">
+                            <input class="form-control" type="text" placeholder="cgpa" name="cgpa" required>
                             <label for="cgpa">Cgpa</label>
-                            <input type="text" placeholder="cgpa" name="cgpa" required>
                         </div>
                     </section>
                     <div class="title">
                         <h1>Experience details</h1>
-                        
                     </div>
-                    <section class="details address-details">
-                        <div class="input-row">
+                    <section class="details experience-details">
+                        <div class="input-row select">
                             <select required>
-                            <option hidden disabled selected value> Country </option>>
-                            <option>India</option>
-                            <option>USA</option>
-                            <option>UK</option>
+                            <option hidden disabled selected value> Experience </option>>
+                            <option>0-2</option>
+                            <option>3-4</option>
+                            <option>5-6</option>
+                            <option>6+</option>
+                            </select>
+                        </div>
+                        <div class="input-row select">
+                            <select required>
+                                <option hidden disabled selected value> Role </option>>
+                                <option>Fullstack Dev</option>
+                                <option>Devops</option>
+                                <option>Mobile Dev</option>
+                                <option>Cloud Admin</option>
+                                <option>DataBase Admin</option>
+                                <option>Systems Architect</option> 
                             </select>
                         </div>
                         <div class="input-row">
-                            <select required>
-                            <option hidden disabled selected value> State </option>>
-                            <option>Karnataka</option>
-                            <option>TamilNadu</option>
-                            <option>Florida</option>
-                            <option>California</option>
-                            <option>England</option>
-                            </select>
+                            <label for="resume" class="resume">Resume</label>
+                            <input type="file" name="resume">
+                        </div>
+                        <div class="input-row" style="width: 100%;">
+                            <textarea class="form-control" name="comment" id="cover-letter" cols="60" rows="30" placeholder="Cover Letter"></textarea>
+                        </div>
+                        <div class="input-row" style="width: 100%;">
+                            <h4>From where have you heard us?</h4>
                         </div>
                         <div class="input-row">
-                            <select name="cities" id="city" required>
-                            <option hidden disabled selected value> City </option>>
-                            <option>Coimbatore</option>
-                            <option>Chennai</option>
-                            <option>Bengaluru</option>
-                            <option>Mysore</option>
-                            <option>Miami</option>
-                            <option>Los Angeles</option>
-                            <option>San Francisco</option>
-                            <option>London</option>
-                            </select>
+                            <input type="checkbox" name="source[]" value="socialMedia"> <p>Social Media</p>
+                        </div>
+                        <div class="input-row">
+                            <input type="checkbox" name="source[]" value="friends"> <p>Friend</p>
+                        </div>
+                        <div class="input-row">
+                            <input type="checkbox" name="source[]" value="newsPaper"> <p>News Paper</p>
+                        </div>
+                        <div class="input-row">
+                            <input type="checkbox" name="source[]" value="newsPaper"> <p>Advertisement</p>
                         </div>
                     </section> 
                 </section>
+                <div class="submit">
+                    <input type="submit">
+                </div>
             </form>
         </div>
     </div>
