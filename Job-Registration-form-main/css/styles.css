@@ -1,0 +1,223 @@
+:root {
+    --pink: rgba(255, 255, 255, 0.339);
+    --text: rgb(0, 0, 0);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: url("https://www.betterteam.com/images/job-application-form-6000x4000-20201210.jpg?crop=4:3,smart&width=1200&dpr=2");
+}
+body,.title, .form-heading, .container,.gender-container, .form-content, .details {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+.form-heading, .gender-container, .details {
+    width: 100%;
+}
+.container {
+    flex-direction: column;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    max-width: 800px;
+    border-radius: 10px;
+    padding: 0;
+    gap: 0;
+}
+.form-body form {
+    flex-wrap: wrap;
+}
+.form-heading {
+    background: var(--pink);
+    color: #000000;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 5px 5px 0 0;
+}
+
+.form-body form {
+    display: flex;
+    flex: 1fr 1fr;
+    padding: 0;
+}
+.form-control {
+    background-color: #989898;
+}
+
+.title {
+    font-size: 20px;
+}
+
+.left .title {
+    color: var(--text);
+    color: #000000;
+}
+.right .title {
+    color: #000000;
+}
+
+.form-content {
+    flex-direction: column;
+    flex: 1;
+    padding: 10px;
+} 
+.right {
+    background: var(--pink);
+}
+.details, .gender-container{
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 10px;
+    row-gap: 20px;
+    font-size: medium;
+}
+
+.input-row {
+    color: var(--text);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+.input-row input {
+    padding: 0 2.8rem;
+    border-radius: 5px;
+    border: 2px solid rgba(112, 106, 106, 0.7);
+    outline: none;
+    background: #ffffffa6;
+    min-width: 100%;
+    max-height: 3.6em !important;
+    width: 18em;
+    color: var(--text);
+    font-size: 14px;
+}
+.left .input-row input:focus,
+.left .input-row input:valid {
+    border: 3px solid rgb(92, 1, 249);
+    background: #5c6664;
+    color: var(--pink);
+    outline: none;
+}
+
+.right .input-row input:focus,
+.right .input-row input:valid {
+    border-color: rgb(0, 0, 0);
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance:none;
+    outline:0;
+    box-shadow: none;
+    border: 0!important;
+    background-color: #ffffff00;
+    flex: 1;
+    color: var(--text);
+    padding: 0 0.5em;
+    cursor: pointer;
+}
+select::-ms-expand {
+    display: none;
+    padding: 2em;
+}
+
+.select {
+    position: relative;
+    display: flex;
+    width: 18em;
+    height: 3.6em;
+    background-color: #ffffff74;
+    overflow: hidden;
+    border-radius: .25em;
+    color: var(--pink);
+}
+
+.select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1em 1em;
+    cursor: pointer;
+    background: rgb(0, 0, 0);
+    pointer-events: none;
+
+}
+.select:hover::after {
+    color: var(--text);
+}
+
+.gender-container {
+    font-size: large;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.submit {
+    width: 100%;
+}
+.submit > * {
+    width: 100%;
+    height: 3em;
+    background: var(--pink);
+    color: rgb(0, 0, 0);
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    font-size: larger;
+    letter-spacing: 2px;
+    transition: all ease-in-out 0.2s;
+}
+.submit > *:hover {
+    background: rgb(0, 0, 0);
+    color: #fff;
+}
+.submit > *:active {
+    background: rgb(96, 96, 96);
+}
+input[type="file"] {
+    flex:1;
+}
+
+.experience-details .resume {
+    color: var(--text);
+    flex:1;
+    background-color: #ffffff74;
+    padding: 0.4em 2em;   
+    border-radius: 8px;
+    cursor: pointer; 
+}
+#cover-letter {
+    width: 90%;
+    height: 4em;
+    color: var(--text);
+}
+.input-row p {
+    color: rgb(0, 0, 0);
+    width: max-content;
+}
+input[type="checkbox"] {
+    width: 20px !important;
+    margin-left: -5em;
+    color: var(--text);
+}
+.input-row h4 {
+    color: #000000;
+}
