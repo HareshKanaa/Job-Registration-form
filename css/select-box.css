@@ -1,0 +1,41 @@
+select {
+    outline:0;
+    box-shadow: none;
+    border: 0!important;
+    background: var(--bgcolor);
+    flex: 1;
+    color: var(--textcolor);
+    padding: 0 0.5em;
+    cursor: pointer;
+}
+select::-ms-expand {
+    display: none;
+    padding: 2em;
+}
+
+.select {
+    position: relative;
+    display: flex;
+    width: 18em;
+    height: 3.6em;
+    background: var(--bgcolor);
+    overflow: hidden;
+    padding: 1.5em 0 0 0.5em;
+    border-radius: .5em;
+    color: var(--textcolor);
+}
+
+.select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1em 1em;
+    cursor: pointer;
+    background: black;
+    pointer-events: none;
+
+}
+.select:hover::after {
+    color: var(--textcolor);
+}

@@ -1,0 +1,16 @@
+.details, .gender-container{
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 10px;
+    row-gap: 20px;
+    font-size: var(--text) !important;
+}
+.input-row, .gender-container {
+    position: relative;
+}
+
+.gender-container {
+    font-size: var(--heading) !important;
+    font-weight: 700;
+    color: var(--textcolor);
+}
