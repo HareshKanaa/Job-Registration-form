@@ -11,4 +11,5 @@
     left: 0;
     color: red !important;;
     font-size: var(--text) !important;
+    z-index: 100;
 }

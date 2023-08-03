@@ -70,3 +70,11 @@
     background-color: var(--bgcolor) !important;
     color: var(--textcolor) !important;
 }
+
+.terms {
+    color: #fff;
+    font-size: var(--heading) !important;
+}
+.input-row, .gender-container, .cb-1 {
+    position: relative;
+}

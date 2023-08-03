@@ -1,29 +1,3 @@
-export const validateRadioButtons = (radioButtons, field) => {
-  let checked = false;
-  let value = "";
-  console.log(radioButtons, field);
-  try {
-    radioButtons.forEach((radioButton) => {
-      if(radioButton.checked) {
-        checked = true;
-        value = radioButton.id;
-      }
-    });
-    if(!checked) {
-      throw new Error('No option selected');
-    }
-  } catch (err) {
-    console.log(err);
-    const parent = document.getElementById('gender-container');
-    const error = document.getElementById(`radio-${field}`);    
-    error.innerText = `${field} is not selected`;
-    parent.appendChild(error);
-    return {isValid: false, value};
-  }
-  parent.classList.remove('invalid');
-  return {isValid: true, value};
-}
-
 export const validateSelectBox = (value, field) => {
   console.log(value, field);
   if (value !== "" || document.getElementById(field).value !== "") {
@@ -32,20 +6,15 @@ export const validateSelectBox = (value, field) => {
   } else {
     const parent = document.getElementById(field).parentNode;
     const error = document.getElementById(`select-${field}`);
-    console.log(error);
-    console.log(parent);
-    // issue is here text in the error field doesn't display
     parent.classList.add('invalid');
     error.innerText = `${field} is not selected`;
     return false;
   }
 }
 
-export const validateFile = (value, field) => {
+export const validateFile = (file, field) => {
   const element = document.getElementById(field);
-  const file = document.getElementById(field).files[0];
   const error = document.getElementById(`file-${field}`);
-  console.log(value, field);
   if (!file || file == undefined || file == null) {
     error.innerText = `${field} is not selected`;
   } else if(file.size > 1024 * 1024 * 2) {
@@ -61,3 +30,36 @@ export const validateFile = (value, field) => {
   return false;
 }
 
+export const validateMultiple = (type, inputs, field, count = 1) => {
+  const parent = document.getElementById(field);
+  const error = document.getElementById(`${type}-${field}`); 
+  let checked = 0;
+  let value = "";
+  inputs.forEach((input) => {
+    if(input.checked) {
+      checked++;
+      value = input.id;
+    }
+  });
+  if(checked < count) {
+    console.log(`inside ${type}`, `${type}-${field}`);   
+    error.innerText = `${field} is not selected`;
+    parent.focus();
+    console.log(`inside ${type}`, error, parent);
+    parent.classList.add('invalid');
+    return {isValid: false, value};
+  }
+  error.innerText = '';
+  parent.classList.remove('invalid');
+  return {isValid: true, value};
+}
+
+export const validateRadioButtons = (radioButtons, field) => {
+  return validateMultiple('radio', radioButtons, field, 1);
+}
+
+export const validateCheckbox = (field, count = 1) => {
+  const parent = document.getElementById(field);
+  const checkboxes = document.getElementById(field).querySelectorAll('input[type="checkbox"]');
+  return validateMultiple('checkbox', checkboxes, field, count).isValid;
+}

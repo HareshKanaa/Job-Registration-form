@@ -5,9 +5,7 @@
     row-gap: 20px;
     font-size: var(--text) !important;
 }
-.input-row, .gender-container {
-    position: relative;
-}
+
 
 .gender-container {
     font-size: var(--heading) !important;
