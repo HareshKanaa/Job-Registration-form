@@ -1,8 +1,7 @@
 const validateTextField = (value, field) => {
-  document.getElementById(field).classList.add('invalid');
-  const parent = document.getElementById(field).parentNode;
-  const error = document.createElement('div');
-  error.classList.add('error');
+  const element = document.getElementById(field);
+  const parent = element.parentNode;
+  const error = document.getElementById(`text-${field}`);
   // regex for only character &, ., space, , allowed
   const regexText = /^[a-zA-Z&., ]+$/;
   try {
@@ -11,7 +10,7 @@ const validateTextField = (value, field) => {
       case 'lastName':
         // Regex for name validation
         const regexName = /^[a-zA-Z]+$/;
-        if(value.match(regexName) || value.length < 3 || value.length > 30) {
+        if(!value.match(regexName) || value.length < 3 || value.length > 30) {
           throw new Error('Invalid Name');
         }
         break;
@@ -39,7 +38,7 @@ const validateTextField = (value, field) => {
         }
         break;
       case 'college':
-        if(value.match(regexText) || value.length < 3 || value.length > 80) {
+        if(!value.match(regexText) || value.length < 3 || value.length > 80) {
           throw new Error('Invalid Name of Institution');
         }
         break;
@@ -84,11 +83,18 @@ const validateTextField = (value, field) => {
         break;
     }
   } catch (err) {
-    // console.log(err);
+    console.log(value);
+    // error.classList.add('error');
+    element.focus();
+    element.classList.add('invalid');
     error.innerText = err.message;
-    parent.appendChild(error);
     return false;
   }
+  // remove the error
+  console.log(parent);
+  element.classList.remove('invalid');
+  error.innerText="";
+  // error.classList.remove('error');
   return true;
 }
 

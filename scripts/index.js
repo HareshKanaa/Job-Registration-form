@@ -12,24 +12,21 @@ const form = document.querySelector('form');
 
 form.addEventListener('submit', (e) => {
   let allValid = true;
+  removeErrors();
   allValid = validateInput('text', textFields, validateTextField) && allValid;
-  allValid = GenderValidation() && allValid;
+  if(allValid)
   allValid = validateInput('select', SelectBoxes, validateSelectBox) && allValid;
+  if(allValid)
   allValid = validateInput('file', Files, validateFile) && allValid;
+  if(allValid)
+  allValid = GenderValidation() && allValid;
   if(!allValid) {
     e.preventDefault();
   }
   console.log(data);
 });
 form.addEventListener('reset', () => {
-  const errors = document.querySelectorAll('.error');
-  errors.forEach((error) => {
-    error.remove();
-  });
-  const invalids = document.querySelectorAll('.invalid');
-  invalids.forEach((invalid) => {
-    invalid.classList.remove('invalid');
-  });
+  removeErrors();
 });
 
 
@@ -49,15 +46,58 @@ function GenderValidation() {
 
 function validateInput(type, values, callback) {
   let allValid = true;
-  values.forEach((field) => {
+  for(const field of values) {
     try{
       const element = document.getElementById(field);
       data[field] = type=='file'?element.files[0]:element.value;
       allValid = callback(data[field], field) && allValid;
+      if(allValid == false) return false;
     } catch (err) {
       console.log(err);
       console.log(field);
     }
-  });
+  }
   return allValid;
+}
+
+function setError(type, values) {
+  for(const field of values) {
+    try{
+      const element = document.getElementById(field);
+      const parent = element.parentNode;
+      const error = document.createElement('div');
+      error.classList.add('error');
+      error.id = `${type}-${field}`;
+      error.innerText = "";
+      parent.appendChild(error);
+    } catch (err) {
+      console.log(err);
+      console.log(field);
+    }
+  }
+}
+
+setError('text', textFields);
+setError('select', SelectBoxes);
+setError('file', Files);
+setErrorRadio('gender-container');
+function setErrorRadio(field) {
+  parent = document.getElementById(field);
+  const error = document.createElement('div');
+  error.classList.add('error');
+  error.id = `radio-${field}`;
+  error.innerText = "";
+  error.style.left = '7%';
+  parent.appendChild(error);
+}
+
+function removeErrors() {
+  // const errors = document.querySelectorAll('.error');
+  // errors.forEach((error) => {
+  //   error.remove();
+  // });
+  const invalids = document.querySelectorAll('.invalid');
+  invalids.forEach((invalid) => {
+    invalid.classList.remove('invalid');
+  });
 }

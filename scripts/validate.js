@@ -17,27 +17,31 @@ export const validateRadioButtons = (radioButtons, field) => {
   } catch (err) {
     console.log(err);
     const parent = document.getElementById('gender-container');
-    const error = document.createElement('div');
-    error.classList.add('error');
-    error.style.left = '7%';
+    const error = document.getElementById(`radio-${field}`);
+      // error.classList.add('error');
+    
     error.innerText = `${field} is not selected`;
     parent.appendChild(error);
-
     return {isValid: false, value};
   }
+  parent.classList.remove('invalid');
   return {isValid: true, value};
 }
 
 export const validateSelectBox = (value, field) => {
+  console.log(value, field);
   if (value !== "" || document.getElementById(field).value !== "") {
+    parent.classList.remove('invalid');
     return true;
   } else {
     const parent = document.getElementById(field).parentNode;
-    const error = document.createElement('div');
-    error.classList.add('error');
+    const error = document.getElementById(`select-${field}`);
+    console.log(error);
+    console.log(parent);
+    // error.classList.add('error');
     parent.classList.add('invalid');
     error.innerText = `${field} is not selected`;
-    parent.appendChild(error);
+    // parent.appendChild(error);
     return false;
   }
 }
@@ -45,9 +49,7 @@ export const validateSelectBox = (value, field) => {
 export const validateFile = (value, field) => {
   const element = document.getElementById(field);
   const file = document.getElementById(field).files[0];
-  const parent = document.getElementById(field).parentNode;
-  const error = document.createElement('div');
-  error.classList.add('error');
+  const error = document.getElementById(`file-${field}`);
   console.log(value, field);
   if (!file || file == undefined || file == null) {
     error.innerText = `${field} is not selected`;
@@ -56,10 +58,11 @@ export const validateFile = (value, field) => {
   } else if(file.type !== 'application/pdf' && file.type !== 'application/msword' && file.type !== 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
     error.innerText = `${field} must be pdf or doc or docx`;
   } else {
+    error.innerText = '';
+    element.classList.remove('invalid');
     return true;
   } 
   element.classList.add('invalid');
-  parent.appendChild(error);
   return false;
 }
 
