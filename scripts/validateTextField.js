@@ -84,17 +84,14 @@ const validateTextField = (value, field) => {
     }
   } catch (err) {
     console.log(value);
-    // error.classList.add('error');
     element.focus();
     element.classList.add('invalid');
     error.innerText = err.message;
     return false;
   }
-  // remove the error
   console.log(parent);
   element.classList.remove('invalid');
   error.innerText="";
-  // error.classList.remove('error');
   return true;
 }
 

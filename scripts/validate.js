@@ -1,5 +1,3 @@
-// import validateTextField from "./validateTextField";
-
 export const validateRadioButtons = (radioButtons, field) => {
   let checked = false;
   let value = "";
@@ -17,9 +15,7 @@ export const validateRadioButtons = (radioButtons, field) => {
   } catch (err) {
     console.log(err);
     const parent = document.getElementById('gender-container');
-    const error = document.getElementById(`radio-${field}`);
-      // error.classList.add('error');
-    
+    const error = document.getElementById(`radio-${field}`);    
     error.innerText = `${field} is not selected`;
     parent.appendChild(error);
     return {isValid: false, value};
@@ -38,10 +34,9 @@ export const validateSelectBox = (value, field) => {
     const error = document.getElementById(`select-${field}`);
     console.log(error);
     console.log(parent);
-    // error.classList.add('error');
+    // issue is here text in the error field doesn't display
     parent.classList.add('invalid');
     error.innerText = `${field} is not selected`;
-    // parent.appendChild(error);
     return false;
   }
 }

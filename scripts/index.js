@@ -92,10 +92,6 @@ function setErrorRadio(field) {
 }
 
 function removeErrors() {
-  // const errors = document.querySelectorAll('.error');
-  // errors.forEach((error) => {
-  //   error.remove();
-  // });
   const invalids = document.querySelectorAll('.invalid');
   invalids.forEach((invalid) => {
     invalid.classList.remove('invalid');
