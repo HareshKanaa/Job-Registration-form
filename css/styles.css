@@ -13,8 +13,8 @@
     box-sizing: border-box;
 }
 body {
-    width: 100vw;
-    height: 100vh;
+    
+    background: url("../images\ \(2\).jpg");
 }
 body,.title, .form-heading, .container,.gender-container, .form-content, .details {
     display: flex;
