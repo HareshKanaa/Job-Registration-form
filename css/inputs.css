@@ -1,0 +1,80 @@
+.input-row {
+    color: var(--textcolor);
+    font-size: var(--text) !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+.input-row input {
+    padding: 0 2.8rem;
+    border-radius: 5px;
+    /* border: 2px solid rgba(112, 106, 106, 0.7); */
+    outline: none;
+    background: var(--bgcolor);
+    min-width: 100%;
+    max-height: 3.6em !important;
+    width: 18em;
+    color: var(--textcolor);
+    font-size: var(--text) !important;
+}
+.input-row input:focus,
+.input-row input:valid {
+    background: var(--bgcolor);
+    color: var(--textcolor);
+    outline: none;
+}
+
+.input-row p {
+    color: rgb(99, 17, 17);
+    width: max-content;
+}
+.input-row h4 {
+    color: #fff;
+}
+
+.checkbox-container .title {
+    font-size: var(--text) !important;    
+}
+.checkboxes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem;
+    row-gap: 1rem;
+    /* space around */
+    font-size: var(--heading) !important;    
+    justify-content: space-around;
+    color: #fff;
+}
+
+.upload-file, .checkbox-container, .cover-letter{
+    max-width: 86%;
+    min-width: none;
+}
+
+.cover-letter {
+    height: 6em;
+    color: var(--textcolor) !important;
+}
+.cover-letter > * {
+    width: 100% !important;
+    height: 100% !important;
+}
+.cover-letter textarea {
+    background-color: var(--bgcolor) !important;
+    color: var(--textcolor) !important;
+}
+.cover-letter textarea:focus,
+.cover-letter textarea::placeholder {
+    background-color: var(--bgcolor) !important;
+    color: var(--textcolor) !important;
+}
+
+.terms {
+    color: #fff;
+    font-size: var(--heading) !important;
+}
+.input-row, .gender-container, .cb-1 {
+    position: relative;
+}
